@@ -21,14 +21,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Create License config file
-        uses: jsdaniell/create-json@1.1.2
-        with:
-          name: "services-config.json"
-          json: ${{ secrets.CREDENTIALS_JSON }}
-      
       - name: Move config file
-        run: mv services-config.json /usr/share/unity3d/config/
+        run: mv ${{ github.workspace }}/services-config.json /usr/share/unity3d/config/services-config.json
 
       # Setup Unity using actions
       - name: Setup Unity
