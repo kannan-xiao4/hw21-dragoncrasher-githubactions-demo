@@ -18,11 +18,12 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: test https
-        run: wget https://www.google.com/
+      - name: test http weget
+        run: wget http://35.200.34.197:8080/v1/status
 
-      - name: test http
-        run: wget http://www.chiseki.go.jp/
+      - name: test http curl
+        run: curl http://35.200.34.197:8080/v1/status
+
 
   # linux:
   #   runs-on: ubuntu-latest
