@@ -1,0 +1,66 @@
+THIRD PARTY ASSETS
+
+The following Third Party Assets are used & distributed in this project:
+
+FONTS ----
+
+Ander Hedge
+This font has been created by Jayvee D. Enaguas (Grand Chaos).
+https://www.dafont.com/ander-hedge.font
+
+
+SCRIPTS & TOOLS ----
+
+'DurationTimer.cs' by CoffeeBrain Games
+https://coffeebraingames.wordpress.com/2014/10/20/a-generic-duration-timer-class/
+
+'Comparison.cs' by CoffeeBrain Games
+https://coffeebraingames.wordpress.com/2013/12/18/a-generic-floating-point-comparison-class/
+
+'Timeline Particle Control' by Keijiro & Unity Technologies
+https://github.com/keijiro/TimelineParticleControl
+
+
+TEXTURES & SPRITES ----
+
+'Particle Pack' by Kenney
+License (Creative Commons Zero, CC0)
+https://www.kenney.nl/assets/particle-pack
+
+
+AUDIO ----
+
+Majority of Sound Effects sourced from Sonniss' GameAudioGDC Archive
+https://sonniss.com/gameaudiogdc
+
+Exceptions not sourced from Sonniss' GameAudioGDC Archive:
+
+Units 'Get Hit' and 'Death' SFX by Micheal Anctil (mic.anctil@gmail.com)
+https://www.michaelanctilsound.com/
+
+"Darkling" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+"Morgana Rides " Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+'Dragon Bite' is 'monster bite' by Lucas Duff
+https://freesound.org/people/LucasDuff/sounds/467701/
+
+'Skeleton Growl' is 'attack-1' by Sonidotv
+https://freesound.org/people/sonidotv/sounds/238318/
+
+'Witch Thunderbolt' is 'Energy Riser' by Magnus Walker
+https://freesound.org/people/magnuswaker/sounds/522095/
+
+'Knight Ha' is 'Ha' by Luke Sharples
+https://freesound.org/people/LukeSharples/sounds/209187/
+
+'Witch Hmm' is 'Hmm (2)' from Montblanccandies
+https://freesound.org/people/montblanccandies/sounds/266292/
+
+'AudioClip_Fanfares_Victory' is 'Fanfares_BigWin' from RPG Battle Themes
+'AudioClip_Fanfares_Defeat' is 'Fanfares_GameOver_01' from RPG Battle Themes
+https://www.gamedevmarket.net/asset/rpg-battle-themes/

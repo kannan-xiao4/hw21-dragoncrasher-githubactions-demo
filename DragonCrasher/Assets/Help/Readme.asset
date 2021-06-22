@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcf7219bab7fe46a1ad266029b2fee19, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  icon: {fileID: 2800000, guid: 888804c55962747fb80c27bfbe4e58b6, type: 3}
+  title: 'Lost Crypt: 2D Sample Project'
+  title: 'Dragon Crashers: 2D Sample Project'
+  sections:
+  - heading: Get to know Dragon Crashers
+    text: This Unity 2D sample project is a vertical slice of a side-scrolling idle
+      RPG game that showcases how the suite of 2D tools can be combined with artwork
+      to make your vision a reality. To play the demo, select Dragon Crashers from
+      the top bar, followed by Load Game Menu.
+    linkText: 
+    url: 
+  - heading: Dragon Crashers resources
+    text: We are preparing content and tutorials based on this demo, which we will
+      share in future updates. Keep an eye on the Unity blog, social media and YouTube
+      channels.
+    linkText: Find more resources on our 2D tools website.
+    url: https://unity.com/unity/features/2dtools
+  - heading: 'Previous demo: Lost Crypt'
+    text: Lost Crypt is a 2D sample project that demonstrates how we solved common
+      visual challenges with 2D tools to recreate a side scrolling game platformer.
+      Discover more artistic capabilities made possible in this demo.
+    linkText: Read the blog.
+    url: https://blogs.unity3d.com/2019/12/18/download-our-new-2d-sample-project-lost-crypt/
+  - heading: 'Webinar: New 2D graphics features in Lost Crypt'
+    text: Our global content developer, Andy Touch, discusses the use of 2D lights,
+      shaders and post-processing in this project. The video of his live webinar,
+      as well as the ones shared below, might contain references to previous versions
+      of the tools and project, but their content remains relevant for Unity users
+      today.
+    linkText: Watch the webinar
+    url: https://www.youtube.com/watch?v=vRPW3H4X9PE
+  - heading: 'Presentation: Bringing 2D characters to life with 2D Animation'
+    text: "Games advocate Arturo Nu\xF1ez, explores the benefits and workflow of
+      the 2D Animation tool. His presentation at Unite Copenhagen 2019 shows how
+      to create 2D skeletal animation, such as the one used in Lost Crypt."
+    linkText: Watch the presentation
+    url: https://www.youtube.com/watch?v=vap04-Py9QM
+  - heading: Lightning round of 2D tips
+    text: Why wait to get started? Find out how to work quickly and efficiently throughout
+      your entire 2D project with this compilation of handy tips.
+    linkText: Read the blog
+    url: https://blogs.unity3d.com/2021/02/09/a-lightning-round-of-great-tips-for-2d-games/
+  - heading: Got feedback?
+    text: Please reach out to us about Dragon Crashers, or any 2D tools, in the forums!
+    linkText: 'Unity Forums: 2D Section'
+    url: https://forum.unity.com/forums/2d.53/
+  loadedLayout: 1
+

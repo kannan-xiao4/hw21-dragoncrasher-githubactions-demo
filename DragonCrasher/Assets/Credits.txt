@@ -1,0 +1,45 @@
+CREDITS
+
+Example Project: Dragon Crashers
+Design, Developed and Maintained by Unity Technologies
+Distributed through the Unity Asset Store
+
+
+Project Lead & Product Marketing:
+Eduardo Oriz
+
+Producer and Audio Contributor:
+Mahmoud Jabban
+
+Art Direction, Artist, Animation, UI Art & VFX:
+Jaroslaw Majewski
+http://mindjardesign.com/
+
+Game Developer, Project Structure and VFX Contributor:
+Andy Touch
+
+Developer:
+Chema Damak
+
+Audio SFX Contributor:
+Michael Anctil (mic.anctil@gmail.com)
+https://www.michaelanctilsound.com/
+
+Unity Technologies R&D 2D Team:
+Rus Scammell
+Paul Tham
+Yuanxing Cai
+Chris Chu
+Leo Yaik
+
+Unity Technologies R&D UI:
+Philip Cosgrave
+
+UI & UX Consultant:
+Taylor Wright
+
+Special Thanks:
+Mike Geig
+Giorgia Lombardo
+
+
