@@ -34,6 +34,23 @@ jobs:
           echo unity-version: ${{ steps.setup-unity.outputs.unity-version }}
           echo unity-path: ${{ steps.setup-unity.outputs.unity-path }}
           echo env UNITY_PATH: ${{ env.UNITY_PATH }}
+      
+      - name: Create License config file
+        uses: jsdaniell/create-json@1.1.2
+        with:
+          name: "services-config.json"
+          json: ${{ secrets.CREDENTIALS_JSON }}
+          dir: '/usr/share/unity3d/config/'
+      
+      - name: Build Player
+        run: |
+          ${{ env.UNITY_PATH }} -quit -batchmode -projectPath ${{ github.workspace }}/DragonCrasher -buildLinux64Player  ${{ github.workspace }}/DragonCrasher/build
+
+      - name: Archive build player results
+        uses: actions/upload-artifact@v2
+        with:
+          name: buildplayer
+          path: ${{ github.workspace }}/DragonCrasher/build
 
   # macos:
   #   runs-on: macos-latest
