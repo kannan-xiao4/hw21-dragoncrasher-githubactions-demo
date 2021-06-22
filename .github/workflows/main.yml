@@ -25,12 +25,14 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      # Setup Unity using actions
+      - name: Setup Unity
+        id: setup-unity
+        uses: kuler90/setup-unity@v1.0.7
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      # output
+      - name: Print output
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          echo unity-version: ${{ steps.setup-unity.outputs.unity-version }}
+          echo unity-path: ${{ steps.setup-unity.outputs.unity-path }}
+          echo env UNITY_PATH: ${{ env.UNITY_PATH }}
