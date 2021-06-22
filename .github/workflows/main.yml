@@ -89,7 +89,7 @@ jobs:
 
       - name: Move config file
         run: |
-          md 	%PROGRAMDATA%\Unity\config\ > NUL 2>&1
+          md 	%PROGRAMDATA%\Unity\config\
           move .\services-config.json %PROGRAMDATA%\Unity\config\services-config.json
 
       # Setup Unity using actions
