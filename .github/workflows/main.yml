@@ -15,42 +15,51 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  linux:
+  test:
     runs-on: ubuntu-latest
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - name: test https
+        run: wget https://www.google.com/
 
-      - name: Move config file
-        run: |
-          pwd
-          ls
-          mkdir -p /usr/share/unity3d/config
-          mv ./services-config.json /usr/share/unity3d/config/services-config.json
+      - name: test http
+        run: wget http://www.chiseki.go.jp/
 
-      # Setup Unity using actions
-      - name: Setup Unity
-        id: setup-unity
-        uses: kuler90/setup-unity@v1.0.7
-        with:
-          project-path: ${{ github.workspace }}/DragonCrasher
+  # linux:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+  #     - uses: actions/checkout@v2
 
-      # Output
-      - name: Print output
-        run: |
-          echo unity-version: ${{ steps.setup-unity.outputs.unity-version }}
-          echo unity-path: ${{ steps.setup-unity.outputs.unity-path }}
-          echo env UNITY_PATH: ${{ env.UNITY_PATH }}
+  #     - name: Move config file
+  #       run: |
+  #         pwd
+          
+  #         mkdir -p /usr/share/unity3d/config
+  #         mv ./services-config.json /usr/share/unity3d/config/services-config.json
+
+  #     # Setup Unity using actions
+  #     - name: Setup Unity
+  #       id: setup-unity
+  #       uses: kuler90/setup-unity@v1.0.7
+  #       with:
+  #         project-path: ${{ github.workspace }}/DragonCrasher
+
+  #     # Output
+  #     - name: Print output
+  #       run: |
+  #         echo unity-version: ${{ steps.setup-unity.outputs.unity-version }}
+  #         echo unity-path: ${{ steps.setup-unity.outputs.unity-path }}
+  #         echo env UNITY_PATH: ${{ env.UNITY_PATH }}
       
-      - name: Build Player
-        run: |
-          ${{ env.UNITY_PATH }} -quit -batchmode -projectPath ${{ github.workspace }}/DragonCrasher -buildLinux64Player  ${{ github.workspace }}/DragonCrasher/build
+  #     - name: Build Player
+  #       run: |
+  #         ${{ env.UNITY_PATH }} -quit -batchmode -projectPath ${{ github.workspace }}/DragonCrasher -buildLinux64Player  ${{ github.workspace }}/DragonCrasher/build
 
-      - name: Archive build player results
-        uses: actions/upload-artifact@v2
-        with:
-          name: buildplayer
-          path: ${{ github.workspace }}/DragonCrasher/build
+  #     - name: Archive build player results
+  #       uses: actions/upload-artifact@v2
+  #       with:
+  #         name: buildplayer
+  #         path: ${{ github.workspace }}/DragonCrasher/build
 
   # macos:
   #   runs-on: macos-latest
