@@ -22,7 +22,11 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Move config file
-        run: mv services-config.json /usr/share/unity3d/config/services-config.json
+        run: |
+          pwd
+          ls
+          mkdir -p /usr/share/unity3d/config
+          mv ./services-config.json /usr/share/unity3d/config/services-config.json
 
       # Setup Unity using actions
       - name: Setup Unity
