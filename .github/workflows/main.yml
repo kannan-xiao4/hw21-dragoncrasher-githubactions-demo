@@ -15,12 +15,8 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  linux:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
@@ -32,7 +28,47 @@ jobs:
         with:
           project-path: ${{ github.workspace }}/DragonCrasher
 
-      # output
+      # Output
+      - name: Print output
+        run: |
+          echo unity-version: ${{ steps.setup-unity.outputs.unity-version }}
+          echo unity-path: ${{ steps.setup-unity.outputs.unity-path }}
+          echo env UNITY_PATH: ${{ env.UNITY_PATH }}
+
+  macos:
+    runs-on: 	macos-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Setup Unity using actions
+      - name: Setup Unity
+        id: setup-unity
+        uses: kuler90/setup-unity@v1.0.7
+        with:
+          project-path: ${{ github.workspace }}/DragonCrasher
+
+      # Output
+      - name: Print output
+        run: |
+          echo unity-version: ${{ steps.setup-unity.outputs.unity-version }}
+          echo unity-path: ${{ steps.setup-unity.outputs.unity-path }}
+          echo env UNITY_PATH: ${{ env.UNITY_PATH }}
+
+  windows:
+    runs-on: 	windows-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Setup Unity using actions
+      - name: Setup Unity
+        id: setup-unity
+        uses: kuler90/setup-unity@v1.0.7
+        with:
+          project-path: ${{ github.workspace }}\DragonCrasher
+
+      # Output
       - name: Print output
         run: |
           echo unity-version: ${{ steps.setup-unity.outputs.unity-version }}
