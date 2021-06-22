@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Move config file
-        run: mv ${{ github.workspace }}/services-config.json /usr/share/unity3d/config/services-config.json
+        run: mv services-config.json /usr/share/unity3d/config/services-config.json
 
       # Setup Unity using actions
       - name: Setup Unity
