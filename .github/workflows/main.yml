@@ -29,6 +29,8 @@ jobs:
       - name: Setup Unity
         id: setup-unity
         uses: kuler90/setup-unity@v1.0.7
+        with:
+          project-path: ${{ github.workspace }}/DragonCrasher
 
       # output
       - name: Print output
