@@ -36,31 +36,35 @@ jobs:
         run: |
           echo servicesConfig: ${{ steps.createservicesconfig.outputs.servicesConfig }}
           echo configLocation: ${{ steps.createservicesconfig.outputs.configLocation }}
+          echo github.workspace: ${{ github.workspace }}
           ls -la ${{ github.workspace }}
 
-      # # Setup Unity using actions
-      # - name: Setup Unity
-      #   id: setup-unity
-      #   uses: kuler90/setup-unity@v1.0.7
-      #   with:
-      #     project-path: ${{ github.workspace }}/DragonCrasher
+      # Setup Unity using actions
+      - name: Setup Unity
+        id: setup-unity
+        uses: kuler90/setup-unity@v1.0.7
+        with:
+          project-path: ${{ github.workspace }}/DragonCrasher
 
-      # # Output
-      # - name: Print output 2
-      #   run: |
-      #     echo unity-version: ${{ steps.setup-unity.outputs.unity-version }}
-      #     echo unity-path: ${{ steps.setup-unity.outputs.unity-path }}
-      #     echo env UNITY_PATH: ${{ env.UNITY_PATH }}
+      # Output
+      - name: Print output 2
+        run: |
+          echo unity-version: ${{ steps.setup-unity.outputs.unity-version }}
+          echo unity-path: ${{ steps.setup-unity.outputs.unity-path }}
+          echo env UNITY_PATH: ${{ env.UNITY_PATH }}
 
-      # - name: Build Player
-      #   run: |
-      #     ${{ env.UNITY_PATH }} -quit -batchmode -projectPath ${{ github.workspace }}/DragonCrasher -buildLinux64Player ${{ github.workspace }}/DragonCrasher/build
+      - name: Build Player
+        run: |
+          echo github.workspace: ${{ github.workspace }}
+          ls -la ${{ github.workspace }}
+          mkdir -p ${{ github.workspace }}/DragonCrasher/build
+          ${{ env.UNITY_PATH }} -quit -batchmode -projectPath ${{ github.workspace }}/DragonCrasher -buildLinux64Player ${{ github.workspace }}/DragonCrasher/build/
 
-      # - name: Archive build player results
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: buildplayer
-      #     path: ${{ github.workspace }}/DragonCrasher/build
+      - name: Archive build player results
+        uses: actions/upload-artifact@v2
+        with:
+          name: buildplayer
+          path: ${{ github.workspace }}/DragonCrasher/build
 
   # macos:
   #   runs-on: macos-latest
