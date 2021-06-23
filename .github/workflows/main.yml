@@ -57,7 +57,7 @@ jobs:
         uses: kuler90/build-unity@v1
         with:
           project-path: ${{ github.workspace }}/DragonCrasher
-          build-target: Linux
+          build-target: Linux64
 
       - name: Archive build player results
         uses: actions/upload-artifact@v2
