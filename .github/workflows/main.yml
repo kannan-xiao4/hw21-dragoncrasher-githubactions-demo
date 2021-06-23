@@ -22,6 +22,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Create Services Config
+        id: createservicesconfig
         uses: kannan-xiao4/Unity-CreateServicesConfig-For-LicenseServer@main
         with:
           licensingServiceBaseUrl: 'http://35.200.34.197:8080'
@@ -30,33 +31,39 @@ jobs:
           clientConnectTimeoutSec: 5
           clientHandshakeTimeoutSec: 10
 
-      # Setup Unity using actions
-      - name: Setup Unity
-        id: setup-unity
-        uses: kuler90/setup-unity@v1.0.7
-        with:
-          project-path: ${{ github.workspace }}/DragonCrasher
-
       # Output
-      - name: Print output
+      - name: Print output 1
         run: |
-          echo unity-version: ${{ steps.setup-unity.outputs.unity-version }}
-          echo unity-path: ${{ steps.setup-unity.outputs.unity-path }}
-          echo env UNITY_PATH: ${{ env.UNITY_PATH }}
+          echo servicesConfig: ${{ steps.createservicesconfig.outputs.servicesConfig }}
+          echo unity-path: ${{ steps.createservicesconfig.outputs.configLocation }}
+
+      # # Setup Unity using actions
+      # - name: Setup Unity
+      #   id: setup-unity
+      #   uses: kuler90/setup-unity@v1.0.7
+      #   with:
+      #     project-path: ${{ github.workspace }}/DragonCrasher
+
+      # # Output
+      # - name: Print output 2
+      #   run: |
+      #     echo unity-version: ${{ steps.setup-unity.outputs.unity-version }}
+      #     echo unity-path: ${{ steps.setup-unity.outputs.unity-path }}
+      #     echo env UNITY_PATH: ${{ env.UNITY_PATH }}
       
-      - name: Check License aquire
-        run: |
-          /home/runner/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Resources/Licensing/Client/Unity.Licensing.Client --acquire-floating
+      # - name: Check License aquire
+      #   run: |
+      #     /home/runner/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Resources/Licensing/Client/Unity.Licensing.Client --acquire-floating
 
-      - name: Build Player
-        run: |
-          ${{ env.UNITY_PATH }} -quit -batchmode -projectPath ${{ github.workspace }}/DragonCrasher -buildLinux64Player  ${{ github.workspace }}/DragonCrasher/build
+      # - name: Build Player
+      #   run: |
+      #     ${{ env.UNITY_PATH }} -quit -batchmode -projectPath ${{ github.workspace }}/DragonCrasher -buildLinux64Player  ${{ github.workspace }}/DragonCrasher/build
 
-      - name: Archive build player results
-        uses: actions/upload-artifact@v2
-        with:
-          name: buildplayer
-          path: ${{ github.workspace }}/DragonCrasher/build
+      # - name: Archive build player results
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: buildplayer
+      #     path: ${{ github.workspace }}/DragonCrasher/build
 
   # macos:
   #   runs-on: macos-latest
