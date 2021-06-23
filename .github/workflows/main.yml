@@ -50,20 +50,16 @@ jobs:
           echo unity-version: ${{ steps.setup-unity.outputs.unity-version }}
           echo unity-path: ${{ steps.setup-unity.outputs.unity-path }}
           echo env UNITY_PATH: ${{ env.UNITY_PATH }}
-      
-      - name: Check License aquire
+
+      - name: Build Player
         run: |
-          /home/runner/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Resources/Licensing/Client/Unity.Licensing.Client --acquire-floating
+          ${{ env.UNITY_PATH }} -quit -batchmode -projectPath ${{ github.workspace }}/DragonCrasher -buildLinux64Player  ${{ github.workspace }}/DragonCrasher/build
 
-      # - name: Build Player
-      #   run: |
-      #     ${{ env.UNITY_PATH }} -quit -batchmode -projectPath ${{ github.workspace }}/DragonCrasher -buildLinux64Player  ${{ github.workspace }}/DragonCrasher/build
-
-      # - name: Archive build player results
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: buildplayer
-      #     path: ${{ github.workspace }}/DragonCrasher/build
+      - name: Archive build player results
+        uses: actions/upload-artifact@v2
+        with:
+          name: buildplayer
+          path: ${{ github.workspace }}/DragonCrasher/build
 
   # macos:
   #   runs-on: macos-latest
