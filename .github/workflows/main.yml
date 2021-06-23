@@ -37,23 +37,23 @@ jobs:
           echo servicesConfig: ${{ steps.createservicesconfig.outputs.servicesConfig }}
           echo configLocation: ${{ steps.createservicesconfig.outputs.configLocation }}
 
-      # # Setup Unity using actions
-      # - name: Setup Unity
-      #   id: setup-unity
-      #   uses: kuler90/setup-unity@v1.0.7
-      #   with:
-      #     project-path: ${{ github.workspace }}/DragonCrasher
+      # Setup Unity using actions
+      - name: Setup Unity
+        id: setup-unity
+        uses: kuler90/setup-unity@v1.0.7
+        with:
+          project-path: ${{ github.workspace }}/DragonCrasher
 
-      # # Output
-      # - name: Print output 2
-      #   run: |
-      #     echo unity-version: ${{ steps.setup-unity.outputs.unity-version }}
-      #     echo unity-path: ${{ steps.setup-unity.outputs.unity-path }}
-      #     echo env UNITY_PATH: ${{ env.UNITY_PATH }}
+      # Output
+      - name: Print output 2
+        run: |
+          echo unity-version: ${{ steps.setup-unity.outputs.unity-version }}
+          echo unity-path: ${{ steps.setup-unity.outputs.unity-path }}
+          echo env UNITY_PATH: ${{ env.UNITY_PATH }}
       
-      # - name: Check License aquire
-      #   run: |
-      #     /home/runner/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Resources/Licensing/Client/Unity.Licensing.Client --acquire-floating
+      - name: Check License aquire
+        run: |
+          /home/runner/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Resources/Licensing/Client/Unity.Licensing.Client --acquire-floating
 
       # - name: Build Player
       #   run: |
