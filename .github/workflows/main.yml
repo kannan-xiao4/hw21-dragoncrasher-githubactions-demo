@@ -24,7 +24,7 @@ jobs:
       - name: Create Services Config
         uses: kannan-xiao4/Unity-CreateServicesConfig-For-LicenseServer@main
         with:
-          licensingServiceBaseUrl: 'http://35.200.34.197:8080/'
+          licensingServiceBaseUrl: 'http://35.200.34.197:8080'
           enableEntitlementLicensing: true
           enableFloatingApi: true
           clientConnectTimeoutSec: 5
