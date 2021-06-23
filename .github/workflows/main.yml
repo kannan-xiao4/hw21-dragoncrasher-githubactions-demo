@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Create Services Config
-        uses: CreateServicesConfig/
+        uses: ./CreateServicesConfig/
         with:
           licensingServiceBaseUrl: 'http://35.200.34.197:8080/'
           enableEntitlementLicensing: true
