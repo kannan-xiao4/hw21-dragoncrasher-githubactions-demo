@@ -1,7 +1,0 @@
-{
-    "licensingServiceBaseUrl": "http://35.200.34.197:8080/",
-    "enableEntitlementLicensing": true,
-    "enableFloatingApi": true,
-    "clientConnectTimeoutSec": 5,
-    "clientHandshakeTimeoutSec": 10
-  }
