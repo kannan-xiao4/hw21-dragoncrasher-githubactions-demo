@@ -43,4 +43,4 @@ outputs:
   servicesConfig: # output will be available to future steps
     description: 'Services config JSON string'
   configLocation:
-    desacription: 'services-config.json location'
+    description: 'services-config.json location'
