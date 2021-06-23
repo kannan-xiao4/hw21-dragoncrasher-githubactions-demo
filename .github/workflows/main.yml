@@ -1,24 +1,17 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CI
 
-# Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   linux:
     runs-on: ubuntu-latest
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
       - name: Create Services Config
@@ -31,27 +24,11 @@ jobs:
           clientConnectTimeoutSec: 5
           clientHandshakeTimeoutSec: 10
 
-      # Output
-      - name: Print output 1
-        run: |
-          echo servicesConfig: ${{ steps.createservicesconfig.outputs.servicesConfig }}
-          echo configLocation: ${{ steps.createservicesconfig.outputs.configLocation }}
-          echo github.workspace: ${{ github.workspace }}
-          ls -la ${{ github.workspace }}
-
-      # Setup Unity using actions
       - name: Setup Unity
         id: setup-unity
         uses: kuler90/setup-unity@v1.0.7
         with:
           project-path: ${{ github.workspace }}/DragonCrasher
-
-      # Output
-      - name: Print output 2
-        run: |
-          echo unity-version: ${{ steps.setup-unity.outputs.unity-version }}
-          echo unity-path: ${{ steps.setup-unity.outputs.unity-path }}
-          echo env UNITY_PATH: ${{ env.UNITY_PATH }}
 
       - name: Build Unity
         uses: kuler90/build-unity@v1
@@ -63,52 +40,70 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: buildplayer
-          path: ${{ github.workspace }}/DragonCrasher/build
+          path: ${{ github.workspace }}/DragonCrasher/builds
 
   # macos:
   #   runs-on: macos-latest
   #   steps:
-  #     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
   #     - uses: actions/checkout@v2
 
-  #     # Setup Unity using actions
+  #     - name: Create Services Config
+  #       id: createservicesconfig
+  #       uses: kannan-xiao4/Unity-CreateServicesConfig-For-LicenseServer@main
+  #       with:
+  #         licensingServiceBaseUrl: 'http://35.200.34.197:8080'
+  #         enableEntitlementLicensing: true
+  #         enableFloatingApi: true
+  #         clientConnectTimeoutSec: 5
+  #         clientHandshakeTimeoutSec: 10
+
   #     - name: Setup Unity
   #       id: setup-unity
   #       uses: kuler90/setup-unity@v1.0.7
   #       with:
   #         project-path: ${{ github.workspace }}/DragonCrasher
 
-  #     # Output
-  #     - name: Print output
-  #       run: |
-  #         echo unity-version: ${{ steps.setup-unity.outputs.unity-version }}
-  #         echo unity-path: ${{ steps.setup-unity.outputs.unity-path }}
-  #         echo env UNITY_PATH: ${{ env.UNITY_PATH }}
-
-  # windows:
-  #   runs-on: windows-latest
-  #   steps:
-  #     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-  #     - uses: actions/checkout@v2
-
-  #     - name: Move config file
-  #       run: |
-  #         md %PROGRAMDATA%\Unity\config\
-  #         move .\services-config.json %PROGRAMDATA%\Unity\config\services-config.json
-
-  #     # Setup Unity using actions
-  #     - name: Setup Unity
-  #       id: setup-unity
-  #       uses: kuler90/setup-unity@v1.0.7
+  #     - name: Build Unity
+  #       uses: kuler90/build-unity@v1
   #       with:
-  #         project-path: ${{ github.workspace }}\DragonCrasher
-      
-  #     - name: Build Player
-  #       run: |
-  #         "${{ env.UNITY_PATH }}" -quit -batchmode -projectPath "${{ github.workspace }}\DragonCrasher" -buildWindows64Player  "${{ github.workspace }}\DragonCrasher\build"
+  #         project-path: ${{ github.workspace }}/DragonCrasher
+  #         build-target: StandaloneOSX
 
   #     - name: Archive build player results
   #       uses: actions/upload-artifact@v2
   #       with:
   #         name: buildplayer
-  #         path: ${{ github.workspace }}\DragonCrasher\build
+  #         path: ${{ github.workspace }}/DragonCrasher/builds
+
+  # windows:
+  #   runs-on: windows-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+
+  #     - name: Create Services Config
+  #       id: createservicesconfig
+  #       uses: kannan-xiao4/Unity-CreateServicesConfig-For-LicenseServer@main
+  #       with:
+  #         licensingServiceBaseUrl: 'http://35.200.34.197:8080'
+  #         enableEntitlementLicensing: true
+  #         enableFloatingApi: true
+  #         clientConnectTimeoutSec: 5
+  #         clientHandshakeTimeoutSec: 10
+
+  #     - name: Setup Unity
+  #       id: setup-unity
+  #       uses: kuler90/setup-unity@v1.0.7
+  #       with:
+  #         project-path: ${{ github.workspace }}\DragonCrasher
+
+  #     - name: Build Unity
+  #       uses: kuler90/build-unity@v1
+  #       with:
+  #         project-path: ${{ github.workspace }}\DragonCrasher
+  #         build-target: StandaloneWindows64
+
+  #     - name: Archive build player results
+  #       uses: actions/upload-artifact@v2
+  #       with:
+  #         name: buildplayer
+  #         path: ${{ github.workspace }}\DragonCrasher\builds
