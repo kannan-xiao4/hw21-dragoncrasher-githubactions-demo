@@ -53,12 +53,11 @@ jobs:
           echo unity-path: ${{ steps.setup-unity.outputs.unity-path }}
           echo env UNITY_PATH: ${{ env.UNITY_PATH }}
 
-      - name: Build Player
-        run: |
-          echo github.workspace: ${{ github.workspace }}
-          ls -la ${{ github.workspace }}
-          mkdir -p ${{ github.workspace }}/DragonCrasher/build
-          ${{ env.UNITY_PATH }} -quit -batchmode -projectPath ${{ github.workspace }}/DragonCrasher -buildLinux64Player ${{ github.workspace }}/DragonCrasher/build/
+      - name: Build Unity
+        uses: kuler90/build-unity@v1
+        with:
+          project-path: ${{ github.workspace }}/DragonCrasher
+          build-target: Linux
 
       - name: Archive build player results
         uses: actions/upload-artifact@v2
