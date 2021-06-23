@@ -39,3 +39,8 @@ inputs:
     description: 'Specifies which server endpoint should be called. Default value is True.'
     default: true
     required: false
+outputs:
+  servicesConfig: # output will be available to future steps
+    description: 'Services config JSON string'
+  configLocation:
+    desacription: 'services-config.json location'
