@@ -35,7 +35,7 @@ jobs:
       - name: Print output 1
         run: |
           echo servicesConfig: ${{ steps.createservicesconfig.outputs.servicesConfig }}
-          echo unity-path: ${{ steps.createservicesconfig.outputs.configLocation }}
+          echo configLocation: ${{ steps.createservicesconfig.outputs.configLocation }}
 
       # # Setup Unity using actions
       # - name: Setup Unity
