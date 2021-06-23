@@ -44,6 +44,10 @@ jobs:
           echo unity-path: ${{ steps.setup-unity.outputs.unity-path }}
           echo env UNITY_PATH: ${{ env.UNITY_PATH }}
       
+      - name: Check License aquire
+        run: |
+          /home/runner/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Resources/Licensing/Client/Unity.Licensing.Client --acquire-floating
+
       - name: Build Player
         run: |
           ${{ env.UNITY_PATH }} -quit -batchmode -projectPath ${{ github.workspace }}/DragonCrasher -buildLinux64Player  ${{ github.workspace }}/DragonCrasher/build
