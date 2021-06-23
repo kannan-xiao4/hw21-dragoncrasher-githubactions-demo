@@ -28,19 +28,19 @@ jobs:
         id: setup-unity
         uses: kuler90/setup-unity@v1.0.7
         with:
-          project-path: ${{ github.workspace }}/DragonCrasher
+          project-path: ${{ github.workspace }}
 
       - name: Build Unity
         uses: kuler90/build-unity@v1
         with:
-          project-path: ${{ github.workspace }}/DragonCrasher
+          project-path: ${{ github.workspace }}
           build-target: StandaloneLinux64
 
       - name: Archive build player results
         uses: actions/upload-artifact@v2
         with:
           name: buildplayer
-          path: ${{ github.workspace }}/DragonCrasher/builds
+          path: ${{ github.workspace }}/builds
 
   # macos:
   #   runs-on: macos-latest
@@ -61,19 +61,19 @@ jobs:
   #       id: setup-unity
   #       uses: kuler90/setup-unity@v1.0.7
   #       with:
-  #         project-path: ${{ github.workspace }}/DragonCrasher
+  #         project-path: ${{ github.workspace }}
 
   #     - name: Build Unity
   #       uses: kuler90/build-unity@v1
   #       with:
-  #         project-path: ${{ github.workspace }}/DragonCrasher
+  #         project-path: ${{ github.workspace }}
   #         build-target: StandaloneOSX
 
   #     - name: Archive build player results
   #       uses: actions/upload-artifact@v2
   #       with:
   #         name: buildplayer
-  #         path: ${{ github.workspace }}/DragonCrasher/builds
+  #         path: ${{ github.workspace }}/builds
 
   # windows:
   #   runs-on: windows-latest
@@ -94,16 +94,16 @@ jobs:
   #       id: setup-unity
   #       uses: kuler90/setup-unity@v1.0.7
   #       with:
-  #         project-path: ${{ github.workspace }}\DragonCrasher
+  #         project-path: ${{ github.workspace }}
 
   #     - name: Build Unity
   #       uses: kuler90/build-unity@v1
   #       with:
-  #         project-path: ${{ github.workspace }}\DragonCrasher
+  #         project-path: ${{ github.workspace }}
   #         build-target: StandaloneWindows64
 
   #     - name: Archive build player results
   #       uses: actions/upload-artifact@v2
   #       with:
   #         name: buildplayer
-  #         path: ${{ github.workspace }}\DragonCrasher\builds
+  #         path: ${{ github.workspace }}\builds
